@@ -1,0 +1,116 @@
+input {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  border-style: none;
+  height: 45px;
+  background-color: transparent;
+}
+textarea {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  border-style: none;
+  height: 45px;
+  background-color: transparent;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+button {
+  opacity: 80%;
+  border-color: transparent;
+  background-color: transparent;
+}
+button:hover {
+  background-color: #e3e6e7;
+  border-radius: 50%;
+}
+.mat-icon {
+  font-size: 20px;
+}
+form {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  width: 650px;
+  .first {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 15px 0px 20px;
+    input {
+      width: 100%;
+    }
+  }
+  .firsttext {
+    display: none;
+  }
+  .second {
+    padding: 2px 20px;
+    display: flex;
+    textarea {
+      width: 100%;
+    }
+  }
+  .secondtext {
+    display: none;
+  }
+  .third {
+    // margin-left: 10px;
+    padding: 3px 25px 3px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .icons {
+      width: 420px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .close {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      padding-left: 30px;
+      padding-right: 30px;
+      height: 35px;
+      margin-bottom: 5px;
+      border-style: none;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  form {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 515px) {
+  form {
+    width: 400px;
+    .third {
+      .icons {
+        width: 300px;
+        .undo,
+        .redo {
+          display: none;
+        }
+      }
+      .close {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 418px) {
+  form {
+    width: 340px;
+    .third {
+      .icons {
+        width: 250px;
+        .undo,
+        .redo {
+          display: none;
+        }
+      }
+    }
+  }
+}

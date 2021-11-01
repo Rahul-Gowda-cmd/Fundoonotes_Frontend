@@ -1,0 +1,103 @@
+<mat-card
+class="n-mat"
+[ngStyle]="{ 'background-color': setColor }"
+>
+<img [src]="imageUrl" alt="" *ngIf="imageUrl!=null && imageUrl != ''" class= "img"  style="width: 100%;">
+<form class="example-form" [formGroup]="NotesForm">
+  <div class="t-div t-main">
+    <input
+      type="text"
+      class="title"
+      id="temp"
+      placeholder="Title"
+      formControlName = "title"
+      [ngModel]="data.title"
+      [ngStyle]="{ 'background-color': setColor }"
+    />
+    <button mat-icon-button class="icons push_pin">
+      <mat-icon class="material-icons-outlined">push_pin</mat-icon>
+    </button>
+  </div>
+  <div class="n-div">
+    <textarea
+      id="notes"
+      class="notes"
+      placeholder="Take a note..."
+      formControlName = "Desc"
+      [ngModel]="data.body"
+      (keyup)="autogrow()"
+      [ngStyle]="{ 'background-color': setColor }"
+    ></textarea>
+  </div>
+  <div class="chips">
+ <div  *ngFor="let person of collaboratorArr">
+    <i style="color: blue;" class="material-icons" [matTooltip]="'Shared with '+person['name']">person_pin</i>
+  </div>
+  </div>
+</form>
+</mat-card>
+<div>
+    <div
+      class="i-main"
+      [ngStyle]="{ 'background-color': setColor }"
+    >
+      <div class="i-div">
+    <!-- <i
+          class="material-icons-outlined"
+          matTooltip="Collaborator"
+          (click)="openDialog()"
+          >person_add_alt_1</i
+        > -->
+          <button mat-icon-button >
+        <mat-icon class="material-icons-outlined"
+        matTooltip="Change Color"
+          [matMenuTriggerFor]="Color">color_lens</mat-icon>
+      </button>
+        
+        <mat-menu #Color="matMenu" class="color-menu" yPosition="above">
+          <div
+            class="a-color"
+            *ngFor="let color of colourArr"
+            matTooltip="{{ color.tooltip }}"
+            (click)="setColor = color.colour"
+            [ngStyle]="{ 'background-color': color.colour }"
+          >
+            <i class="material-icons" *ngIf="setColor == color.colour">check</i>
+          </div>
+        </mat-menu>
+        <button mat-icon-button>
+        <mat-icon class="material-icons-outlined" matTooltip="Add image">insert_photo</mat-icon></button>
+       <button mat-icon-button><mat-icon class="material-icons-outlined" [matTooltip]="isarchive?'Unarchive':'Archive'" (click)="isarchive=!isarchive;pinned=false">archive</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon 
+          class="material-icons-outlined more"
+          matTooltip="More"
+          [matMenuTriggerFor]="menu"
+          >more_vert</mat-icon 
+        >
+        </button>
+        <mat-menu #menu="matMenu" class="i-option">
+          <button
+            mat-menu-item
+            *ngIf="TitleNote.length > 0 || DescNote.length > 0"
+          >
+            Delete Label
+          </button>
+          <button mat-menu-item>Add Label</button>
+          <button
+            mat-menu-item
+            *ngIf="TitleNote.length > 0 || DescNote.length > 0"
+          >
+            Make a copy
+          </button>
+        </mat-menu>
+      </div>
+      <button
+        mat-button
+        (click)="update()"
+        >
+        Close
+      </button>
+    </div>
+  </div>

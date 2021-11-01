@@ -1,0 +1,172 @@
+<div class="big-div">
+  <mat-toolbar class="toolBar">
+    <div class="logo-div" [class]="!clickSearch ? 'media-logo' : ''">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        (click)="expand = !expand; toggle = !toggle"
+      >
+        <mat-icon class="icon" matTooltip="Main menu">menu</mat-icon>
+      </button>
+      <img
+        class="gb_tc gb_6d"
+        src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
+        srcset="
+          https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png 1x,
+          https://www.gstatic.com/images/branding/product/2x/keep_2020q4_48dp.png 2x
+        "
+        alt=""
+        aria-hidden="true"
+        style="width: 40px; height: 40px"
+      />
+      <span>&nbsp;Fundoo</span>
+    </div>
+    <div class="search" [class]="!clickSearch ? 'media-search-div' : ''">
+      <mat-form-field
+        class="s-input"
+        appearance="outline"
+        [class]="!clickSearch ? 'media-search' : ''"
+      >
+        <mat-icon matPrefix matTooltip="Search" *ngIf="clickSearch"
+          >search</mat-icon
+        >
+        <mat-icon
+          class="material-icons class"
+          matPrefix
+          (click)="clickSearch = !clickSearch; searchIcon = !searchIcon"
+          *ngIf="!clickSearch"
+          >arrow_back</mat-icon
+        >
+        <input matInput placeholder="Search" [(ngModel)]="searchInp" />
+        <i
+          class="material-icons icon"
+          matSuffix
+          *ngIf="searchInp.length > 0"
+          (click)="searchInp = ''"
+          >clear</i
+        >
+      </mat-form-field>
+    </div>
+    <div class="icons">
+      <mat-icon
+        matPrefix
+        class="ic-search"
+        (click)="clickSearch = !clickSearch; searchIcon = !searchIcon"
+        *ngIf="searchIcon == true"
+        >search</mat-icon
+      >
+      <i class="material-icons icon" matTooltip="Refresh Page">refresh</i>
+      <i
+        class="material-icons icon"
+        *ngIf="!isGrid"
+        matTooltip="List View"
+        (click)="isGrid = true"
+        >view_list</i
+      >
+      <i
+        class="material-icons icon"
+        *ngIf="isGrid"
+        matTooltip="Grid View"
+        (click)="isGrid = false"
+        >grid_view</i
+      >
+      <i class="material-icons icon" matTooltip="Settings">settings</i>
+      <i class="material-icons icon" matTooltip="List View">apps</i>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <i
+          class="material-icons person"
+          matTooltip="Account {{ Name }} {{ Email }}"
+          >person</i
+        >
+      </button>
+      <mat-menu #menu="matMenu" class="acc-menu">
+        <i class="material-icons person menuIcon">person</i>
+        <div class="user">
+          <p class="name">{{ Name }}</p>
+
+          <p class="email">{{ Email }}</p>
+        </div>
+        <mat-divider></mat-divider>
+
+        <button class="logout" (click)="Logout()">
+          Logout from you account
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+  <div class="Main-Div">
+    <div
+      class="SideNav"
+      (mouseenter)="toggle ? (expand = true) : ''"
+      (mouseleave)="toggle ? (expand = false) : ''"
+      [class]="!expand ? 'expand' : ''"
+    >
+      <div
+        class="options"
+        (click)="isOption = 1; isOptions = ''"
+        [class]="isOption == 1 ? 'active' : ''"
+      >
+        <i class="material-icons">lightbulb_outline</i>
+        <p class="iconName" (click)="routeNotes()" >Notes</p>
+      </div>
+      <div
+        class="options"
+        (click)="isOption = 2; isOptions = ''"
+        [class]="isOption == 2 ? 'active' : ''"
+      >
+        <i class="material-icons">notifications_none</i>
+        <p class="iconName">Reminder</p>
+      </div>
+      <div
+        class="options"
+        (click)="
+          isOptions = label['labelName']; isOption = 0; labelDetails = label
+        "
+        [class]="isOptions == label['labelName'] ? 'active' : ''"
+        *ngFor="let label of userLabels"
+      >
+        <i class="material-icons">label_outline</i>
+        <p class="iconName">{{ label["labelName"] }}</p>
+      </div>
+      <div
+        class="options"
+        (click)="isOption = 3; isOptions = ''"
+        [class]="isOption == 3 ? 'active' : ''"
+      >
+        <i class="material-icons">edit</i>
+        <p class="iconName">Edit Label</p>
+      </div>
+      <div
+        class="options"
+        (click)="isOption = 4; isOptions = ''"
+        [class]="isOption == 4 ? 'active' : ''"
+      >
+        <i class="material-icons">archive</i>
+        <p class="iconName">Archive</p>
+      </div>
+      <div
+        class="options"
+        (click)="isOption = 5; isOptions = ''"
+        [class]="isOption == 5 ? 'active' : ''"
+      >
+        <i class="material-icons">delete_outline</i>
+        <p class="iconName">Trash</p>
+      </div>
+    </div>
+    <div class="NoteContent" [class]="!expand ? 'expand' : ''">
+      <div
+        Create-Note
+        class="c-note"
+        *ngIf="isOption != 4 && isOption != 5"
+      ></div>
+      <div>
+        <app-notes  *ngIf="isOption == 1"></app-notes>
+      </div>
+    </div>
+  </div>
+</div>

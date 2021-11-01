@@ -1,0 +1,120 @@
+input {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  border-style: none;
+  height: 45px;
+  //   padding: 10px 30px;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+button {
+  opacity: 80%;
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 50%;
+}
+button:hover {
+  background-color: #e3e6e7;
+}
+.mat-icon {
+  font-size: 20px;
+}
+.icons {
+  opacity: 0;
+}
+form:hover {
+  transition: 0.3s;
+  cursor: pointer;
+  .icons {
+    transition: 1s;
+    visibility: visible;
+    opacity: 1;
+  }
+  //border-color: rgb(63, 63, 63);
+  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+form {
+  //   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  // position: relative;
+  border-style: solid;
+  border-width: 0.3px;
+  border-color: #cccccc;
+  border-radius: 10px;
+  width: 250px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .first {
+    .push_pin {
+      margin-top: -3px;
+    }
+    display: flex;
+    // align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+    padding: 0px 5px 0px 20px;
+    input {
+      width: 100%;
+    }
+    .title {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      width: 150px;
+      word-wrap: break-word;
+      font-size: x-large;
+    }
+  }
+  .second {
+    padding: 2px 20px;
+    display: flex;
+    input {
+      width: 100%;
+    }
+    .body {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      // opacity: 60%;
+    }
+  }
+  .third {
+    margin-left: 8px;
+    padding: 3px 15px 3px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .icons {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .close {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      padding-left: 30px;
+      padding-right: 30px;
+      height: 35px;
+      margin-bottom: 5px;
+      border-style: none;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  form {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 515px) {
+  form {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 418px) {
+  form {
+    width: 340px;
+  }
+}

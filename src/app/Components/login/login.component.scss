@@ -1,0 +1,102 @@
+$CommonColor: #1a73e8;
+.Main-container {
+  width: 450px;
+  padding: 0px !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+.Form-container {
+  padding: 40px 40px 50px;
+}
+header {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+mat-form-field {
+  width: 100%;
+}
+::ng-deep
+  .mat-form-field-appearance-outline.mat-focused
+  .mat-form-field-outline-thick {
+  color: $CommonColor !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: $CommonColor !important;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-accent .mat-pseudo-checkbox-checked,
+.mat-accent .mat-pseudo-checkbox-indeterminate,
+.mat-pseudo-checkbox-checked,
+.mat-pseudo-checkbox-indeterminate {
+  background-color: $CommonColor !important;
+}
+.but-div {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row-reverse;
+  margin-left: 0px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+.next {
+  background-color: $CommonColor;
+  color: white;
+  width: 20%;
+  font-weight: bold;
+}
+.mat-progress-bar {
+  width: 94% !important;
+  margin-left: 3% !important;
+}
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: #1a73e8 !important;
+}
+@mixin atag {
+  font-family: "Google Sans", Arial, sans-serif;
+  font-size: 14px;
+  color: $CommonColor;
+  font-weight: bolder;
+}
+.Signin {
+  @include atag();
+}
+.Signin:hover {
+  color: #174ea6;
+}
+.Forgot {
+  @include atag();
+  margin-bottom: 20px;
+  text-align: left;
+}
+.inp-col {
+  display: flex;
+  flex-direction: column;
+}
+.mat-card:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+  border: 0.5px solid #a8aaad79;
+  border-radius: 15px;
+}
+a {
+  text-decoration: none;
+}
+@media only screen and (max-width: 600px) {
+  .Main-container {
+    width: 100%;
+  }
+  mat-card {
+    border: none !important;
+  }
+  .mat-progress-bar {
+    display: none;
+  }
+}

@@ -1,0 +1,35 @@
+.body {
+  padding: 2px;
+  border-radius: 5px;
+  width: 120px;
+  height: 100px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  opacity: 1;
+  margin-top: 30px;
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.body > div {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: black;
+  border-color: white;
+  border-style: solid;
+  border-width: 0.5px;
+}
+.body > div:nth-child(1) {
+  border-color: gray;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+.body > div:hover {
+  border-color: black;
+  border-style: solid;
+  border-width: 0.5px;
+}

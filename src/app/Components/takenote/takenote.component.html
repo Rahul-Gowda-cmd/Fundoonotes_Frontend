@@ -1,0 +1,60 @@
+<form [formGroup]="noteForm">
+  <div class="first">
+    <input type="text" placeholder="Title" formControlName="title" />
+    <button mat-icon-button>
+      <mat-icon class="material-icons-outlined">push_pin</mat-icon>
+    </button>
+  </div>
+
+  <div class="first firsttext">
+    <p>BridgeLabz notes</p>
+    <button mat-icon-button>
+      <mat-icon class="material-icons-outlined">local_offer</mat-icon>
+    </button>
+  </div>
+
+  <div class="second">
+    <textarea
+      type="text"
+      placeholder="Take a note..."
+      formControlName="body"
+    ></textarea>
+    <div></div>
+  </div>
+
+  <div class="second secondtext">
+    <p>Fav</p>
+    <div></div>
+  </div>
+
+  <div class="third">
+    <div class="icons">
+      <button mat-icon-button>
+        <mat-icon class="material-icons-outlined">notifications_none</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon class="material-icons-outlined">person_add</mat-icon>
+      </button>
+      <button>
+      <!-- <button mat-icon-button (click)="toggleColorPallete()"> -->
+        <mat-icon class="material-icons-outlined">color_lens</mat-icon>    
+      </button>
+      <button mat-icon-button>
+        <mat-icon class="material-icons-outlined">insert_photo</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon class="material-icons-outlined">archive_outline</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+      </button>
+      <button mat-icon-button disabled class="undo">
+        <mat-icon class="material-icons-outlined">undo</mat-icon>
+      </button>
+      <button mat-icon-button disabled class="redo">
+        <mat-icon class="material-icons-outlined">redo</mat-icon>
+      </button>
+    </div>
+    <button class="close" mat-stroked-button (click)="close()">Close</button>
+  </div>
+</form>

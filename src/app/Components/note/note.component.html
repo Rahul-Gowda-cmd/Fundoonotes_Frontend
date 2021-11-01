@@ -1,0 +1,58 @@
+<form [formGroup]="noteForm"   [ngStyle]="{ 'background-color': note.color }">
+ <div (click)="openDialog()">
+  <div class="first">
+    <div class="title">{{ note.title }}</div>
+    <button mat-icon-button class="icons push_pin">
+      <mat-icon class="material-icons-outlined">push_pin</mat-icon>
+    </button>
+  </div>
+
+  <div class="second">
+    <div class="body">{{ note.body }}</div>
+    <div></div>
+  </div>
+  </div>
+  <div class="third">
+    <div class="icons">
+      <button mat-icon-button>
+        <mat-icon class="material-icons-outlined">notifications_none</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon class="material-icons-outlined">person_add</mat-icon>
+      </button>
+      <app-colors
+        *ngIf="opened"
+        (messageEvent)="receiveMessage($event)"
+        [notesId]="note.notesId"
+      ></app-colors>
+      <button mat-icon-button (click)="toggleColorPallete()">
+        <mat-icon class="material-icons-outlined">color_lens</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon class="material-icons-outlined">insert_photo</mat-icon>
+      </button>
+
+      <button mat-icon-button (click)="archive()">
+        <mat-icon class="material-icons-outlined">archive_outline</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon class="material-icons-outlined"  [matMenuTriggerFor]="menu">more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="i-option">
+          <button
+            mat-menu-item
+            (click)='deleteNote(note.noteId)'
+          >
+            Delete Note
+          </button>
+          <button mat-menu-item>Add Label</button>
+          <button
+            mat-menu-item
+            
+          >
+            Make a copy
+          </button>
+        </mat-menu>
+    </div>
+  </div>
+</form>

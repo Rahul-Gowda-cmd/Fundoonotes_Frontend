@@ -1,0 +1,114 @@
+<mat-card class="Main-Container">
+  <div class="Form-content">
+    <form [formGroup]="RegisterForm">
+      <div>
+        <header>
+          <span style="color: blue">F</span>
+          <span style="color: red">u</span>
+          <span style="color: yellow">n</span>
+          <span style="color: blue">d</span>
+          <span style="color: blue">o</span>
+          <span style="color: green">o</span>
+        </header>
+        <h1>Create your Fundoo Account</h1>
+      </div>
+      <div class="input-div">
+        <mat-form-field appearance="outline">
+          <mat-label>First name</mat-label>
+          <input matInput type="text" formControlName="firstName" />
+          <mat-error *ngIf="RegisterForm.get('firstName')?.errors?.required"
+            >First Name is required</mat-error
+          >
+          <mat-error *ngIf="RegisterForm.get('firstName')?.errors?.pattern"
+            >Name starts with capital letter</mat-error
+          >
+          <mat-error *ngIf="RegisterForm.get('firstName')?.errors?.minlength"
+            >Name is of minimum 3 characters</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Last name</mat-label>
+          <input matInput type="text" formControlName="lastName" />
+          <mat-error *ngIf="RegisterForm.get('lastName')?.errors?.required"
+            >Last Name is required</mat-error
+          >
+          <mat-error *ngIf="RegisterForm.get('lastName')?.errors?.pattern"
+            >Name starts with capital letter or should have characters after
+            space
+          </mat-error>
+          <mat-error *ngIf="RegisterForm.get('lastName')?.errors?.minlength"
+            >Name is of minimum 3 characters</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="input-div">
+        <mat-form-field appearance="outline" class="email">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+          <mat-error *ngIf="RegisterForm.get('email')?.errors?.required"
+            >Email is required</mat-error
+          >
+          <mat-error *ngIf="RegisterForm.get('email')?.errors?.email"
+            >Invalid Email
+          </mat-error>
+          <mat-hint>You can use letters, numbers & periods</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="input-div">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            [type]="hide ? 'text' : 'password'"
+          />
+          <mat-error *ngIf="RegisterForm.get('password')?.errors?.required"
+            >Password is required</mat-error
+          >
+          <mat-error *ngIf="RegisterForm.get('password')?.errors?.pattern"
+            >Invalid Password
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="confirm"
+            [type]="hide ? 'text' : 'password'"
+            pattern="{{ RegisterForm.value.password }}"
+          />
+          <mat-error *ngIf="RegisterForm.get('confirm')?.errors?.required"
+            >Confirm Password is required</mat-error
+          >
+          <mat-error *ngIf="RegisterForm.get('confirm')?.errors?.pattern"
+            >Password doesn't match</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="pass-hint">
+        <mat-hint class="hint-msg"
+          >Use 8 or more characters with a mix of letters, numbers &
+          symbols</mat-hint
+        >
+      </div>
+      <div class="input-Check">
+        <mat-checkbox class="" (change)="hide = !hide"
+          >Show Password</mat-checkbox
+        >
+      </div>
+      <div class="but-div">
+        <button mat-flat-button class="next" (click)="Register()">Next</button>
+        <a routerLink="/login"
+          ><button mat-button class="Signin">Sign in instead</button></a
+        >
+      </div>
+    </form>
+    <div class="img-div">
+      <img src="../../../assets/Image/account.svg" alt="icon" />
+      <figcaption>One account. All of Fundoo working for you.</figcaption>
+    </div>
+  </div>
+</mat-card>
