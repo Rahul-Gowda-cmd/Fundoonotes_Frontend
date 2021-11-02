@@ -56,23 +56,27 @@
         *ngIf="searchIcon == true"
         >search</mat-icon
       >
-      <i class="material-icons icon" matTooltip="Refresh Page">refresh</i>
+      <i class="material-icons icon refresh-class" matTooltip="Refresh Page"
+        >refresh</i
+      >
       <i
-        class="material-icons icon"
+        class="material-icons icon refresh-class"
         *ngIf="!isGrid"
         matTooltip="List View"
         (click)="isGrid = true"
         >view_list</i
       >
       <i
-        class="material-icons icon"
+        class="material-icons icon refresh-class"
         *ngIf="isGrid"
         matTooltip="Grid View"
         (click)="isGrid = false"
         >grid_view</i
       >
       <i class="material-icons icon" matTooltip="Settings">settings</i>
-      <i class="material-icons icon" matTooltip="List View">apps</i>
+      <i class="material-icons icon refresh-class" matTooltip="List View"
+        >apps</i
+      >
       <button
         mat-icon-button
         [matMenuTriggerFor]="menu"
@@ -113,7 +117,7 @@
         [class]="isOption == 1 ? 'active' : ''"
       >
         <i class="material-icons">lightbulb_outline</i>
-        <p class="iconName" (click)="routeNotes()" >Notes</p>
+        <p class="iconName" (click)="routeNotes()">Notes</p>
       </div>
       <div
         class="options"
@@ -166,13 +170,13 @@
         *ngIf="isOption != 4 && isOption != 5"
       ></div>
       <div>
-        <app-notes  *ngIf="isOption == 1"></app-notes>
+        <app-notes *ngIf="isOption == 1"></app-notes>
       </div>
       <div>
-        <app-get-archive *ngIf = "isOption == 4"></app-get-archive>
+        <app-get-archive *ngIf="isOption == 4"></app-get-archive>
       </div>
       <div>
-        <app-get-trash *ngIf = "isOption == 5"></app-get-trash>
+        <app-get-trash *ngIf="isOption == 5"></app-get-trash>
       </div>
     </div>
   </div>

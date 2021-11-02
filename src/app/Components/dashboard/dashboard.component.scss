@@ -103,7 +103,7 @@ p {
   justify-content: center;
   align-items: center;
   &:hover {
- border: 1px solid black;
+    border: 1px solid black;
   }
   &:nth-child(1) {
     border: 1px solid black;
@@ -222,7 +222,6 @@ mat-divider {
 .ic-search {
   display: none;
   border: 1.5px solid #a8aaad79;
-
 }
 .card-disp {
   width: 250px;
@@ -347,12 +346,54 @@ mat-divider {
   padding: 0px 80px;
   align-items: center;
 }
-@media only screen and (max-width: 1186px) {
-  .icons {
-    width: 10%;
-  }
-}
-@media only screen and (max-width: 760px) {
+// @media only screen and (max-width: 1186px) {
+//   .icons {
+//     width: 10%;
+//   }
+// }
+// @media only screen and (max-width: 760px) {
+//   .SideNav.expand,
+//   .SideNav {
+//     width: 80px !important;
+//     .options {
+//       p {
+//         display: none !important;
+//       }
+//     }
+//   }
+//   .NoteContent.expand,
+//   .NoteContent {
+//     width: calc(100% - 80px) !important;
+//   }
+//   .icons {
+//     width: 10%;
+//     margin-right: 65px;
+//   }
+//   .toolBar {
+//     padding: 0px;
+//   }
+//   .s-input {
+//     display: none;
+//   }
+//   .ic-search {
+//     display: block;
+//   }
+//   .media-logo {
+//     display: none;
+//   }
+//   .media-search {
+//     display: block !important;
+//     width: 100%;
+//   }
+//   .media-search-div {
+//     margin-left: 5px;
+//     width: 75%;
+//   }
+//   ::ng-deep .mat-menu-panel {
+//     padding: 55px 15px;
+//   }
+// }
+@media only screen and (max-width: 576px) {
   .SideNav.expand,
   .SideNav {
     width: 80px !important;
@@ -361,6 +402,12 @@ mat-divider {
         display: none !important;
       }
     }
+  }
+  .refresh-class {
+    display: none;
+  }
+  .overall-div {
+    padding: 0px !important;
   }
   .NoteContent.expand,
   .NoteContent {

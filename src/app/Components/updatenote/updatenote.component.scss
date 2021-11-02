@@ -1,312 +1,222 @@
-::ng-deep .mat-dialog-container{
-    overflow: hidden !important;
-    width: 35vw !important;
-    border-radius: 10px;
+::ng-deep .mat-dialog-container {
+  overflow: hidden !important;
+  width: 35vw !important;
+  border-radius: 10px;
 }
-.mat-card{
-max-height: 500px;
-overflow-y: auto;
-position: relative;
-border-radius: 13px;
-padding-top: 8px;
-padding-bottom: 8px;
-box-shadow: none !important;
+.mat-card {
+  max-height: 500px;
+  overflow-y: auto;
+  position: relative;
+  border-radius: 13px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  box-shadow: none !important;
 }
 .title {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-size: 17px;
-    letter-spacing: 1px;
-    border: none;
-    width: 35vw;
-    &:focus-visible {
-      outline: none !important;
-    }
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: 1px;
+  border: none;
+  width: 35vw;
+  &:focus-visible {
+    outline: none !important;
   }
-  .t-div {
+}
+.t-div {
+  display: flex;
+  //justify-content: center;
+  margin-bottom: 10px;
+}
+.t-icons {
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+  &:hover {
+    //background-color: #ddd;
+    border-radius: 50%;
+  }
+}
+.n-div {
+  width: 100%;
+}
+
+.notes {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  flex: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+  resize: none;
+  border: none;
+  width: 100%;
+  &:focus-visible {
+    outline: none !important;
+  }
+}
+.t-main {
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.i-main {
+  display: flex;
+  justify-content: space-between;
+  border: 0.5px solid #ddd;
+  .i-div {
     display: flex;
-    //justify-content: center;
-    margin-bottom: 10px;
-  }
-  .t-icons {
-    padding: 5px 10px 5px 10px;
-    cursor: pointer;
-    &:hover {
-      //background-color: #ddd;
-      border-radius: 50%;
-    }
-  }
-  .n-div {
-    width: 100%;
-  }
-  
-  .notes {
-    font-family: "Roboto", sans-serif;
-    font-size: 17px;
-    flex: 1;
-    overflow: hidden;
-    box-sizing: border-box;
-    resize: none;
-    border: none;
-    width: 100%;
-    &:focus-visible {
-      outline: none !important;
-    }
-  }
-  .t-main {
     justify-content: space-between;
-    margin-bottom: 15px;
-  }
-  .i-main {
-    display: flex;
-    justify-content: space-between;
-    border: 0.5px solid #ddd;
-    .i-div {
-      display: flex;
-      justify-content: space-between;
-      i {
-        padding: 5px 12px;
-        cursor: pointer;
-        color: rgba(0, 0, 0, 0.75);
-        &:hover {
-          background-color: #eee;
-          border-radius: 50%;
-        }
-      }
-    }
-  }
-  .n-mat {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-  }
-  ::ng-deep .ng-trigger {
-      padding: 0px !important;
-  }
-  ::ng-deep .remainder-menu .mat-menu-content{
-    max-width: 300px;
-    width: 300px !important;
-   .r-par{
-    align-self: flex-start;
-    margin-left: 15px;
-    padding-top: 5px;
-    font-family: 'Roboto',sans-serif;
-   }
-  }
-  .i-but {
-    background: none;
-    border: none;
     i {
-      color: rgba(0, 0, 0, 0.5) !important;
-    }
-  }
-  
-  .mat-card::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  .mat-card::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  .mat-card::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  .mat-card::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  .i-pin {
-    cursor: pointer;
-  }
-  .remainder-but{
-    display: flex;
-    justify-content: space-between;
-    p{
-      color: #3c4043;
-    }
-  }
-  
-  .a-color{
-    width: 32px;
-    height: 32px;
-    border-radius:50%;
-    margin: 5px;
-    border: 1px solid transparent;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &:hover{
-      border: 1px solid black;
-    }
-    &:nth-child(1){
-      border: 1px solid black;
-    }
-    i{
-      color: gray;
-    }
-  }
-  .chip-div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: #ddd;
-    width: max-content;
-    padding: 4px 10px;
-    border-radius: 15px;
-    p{
-      margin: 0px;
-      margin-left: 5px;
-    }
-    .chip-but{
-      border: none;
-      background: none;
-      padding: 0px 2px;
-      margin-top: 5px;
-      display: none;
-    }
-    i{
-      font-size: 17px;
-      color: rgba(0,0,0,0.65);
-      &:hover{
+      padding: 5px 12px;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.75);
+      &:hover {
+        background-color: #eee;
         border-radius: 50%;
       }
     }
-    &:hover{
-      .chip-but{
-        display: block;
-      }
-    }
-    
   }
-  .chips{
-    display: flex;
-    div{
-      margin-right: 5px;
-    }
+}
+.n-mat {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+::ng-deep .ng-trigger {
+  padding: 0px !important;
+}
+::ng-deep .remainder-menu .mat-menu-content {
+  max-width: 300px;
+  width: 300px !important;
+  .r-par {
+    align-self: flex-start;
+    margin-left: 15px;
+    padding-top: 5px;
+    font-family: "Roboto", sans-serif;
   }
-  ::ng-deep .mat-tooltip {
-    padding-left: 6px !important;
-    padding-right: 6px !important;
-    font-family: 'Roboto' sans-serif;
-    font-size: 12px;
+}
+.i-but {
+  background: none;
+  border: none;
+  i {
+    color: rgba(0, 0, 0, 0.5) !important;
   }
-  ::ng-deep .remainder-menu-2 .mat-menu-content{
-    div{
-      display: flex;
-      align-items: center;
-      padding: 9px;
-      mat-icon{
-        &:focus-visible{
-          background: none ;
-        }
-      }
-      p{
-        margin-bottom: 0px;
-        margin-left: 3px;
-      }
-    }
+}
+
+.mat-card::-webkit-scrollbar {
+  width: 10px;
+}
+
+.mat-card::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.mat-card::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.mat-card::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.i-pin {
+  cursor: pointer;
+}
+.remainder-but {
+  display: flex;
+  justify-content: space-between;
+  p {
+    color: #3c4043;
   }
-  ::ng-deep #mat-menu-panel-2{
-    position: relative !important;
-    overflow-x: hidden;
+}
+
+.a-color {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    border: 1px solid black;
   }
-  .date-pick{
-    padding: 0px;
-    width: 95%;
-    margin-top: 5px;
-    ::ng-deep .mat-form-field-wrapper{
-      margin-bottom: 0px !important;
-    }
+  &:nth-child(1) {
+    border: 1px solid black;
   }
-  .time-pick{
+  i {
+    color: gray;
+  }
+}
+.chip-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ddd;
+  width: max-content;
+  padding: 4px 10px;
+  border-radius: 15px;
+  p {
+    margin: 0px;
+    margin-left: 5px;
+  }
+  .chip-but {
     border: none;
     background: none;
-    display: flex;
-  
+    padding: 0px 2px;
+    margin-top: 5px;
+    display: none;
   }
-  .time-div{
-    display: flex;
-    justify-content: space-between;
-    width: 246px;
-  }
-  .time-but{
-    display: flex;
-    flex-direction: row-reverse;
-  }
-  .time-d{
-    font-family: 'Roboto' sans-serif;
-    font-size: 14px;
-    border: none;
-    background-color: transparent;
-    &:focus-visible{
-      outline: none;
+  i {
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.65);
+    &:hover {
+      border-radius: 50%;
     }
   }
-  .timeOption{
-    padding: 10px;
-    width: 250px;
-    display: none !important;
-    background-color: white;
-    .option{
-      display: flex;
-    justify-content: space-between;
-    &:hover{
-        cursor: pointer;
-        background-color: #ddd;
-    }
+  &:hover {
+    .chip-but {
+      display: block;
     }
   }
-  .timeOption.active{
-    position:fixed;
-    display: block !important;
-    top: 57%;
-    left: 39.52%;
-    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2),
-    1px 1px 1px 1px rgba(0, 0, 0, 0.19);
+}
+.chips {
+  display: flex;
+  div {
+    margin-right: 5px;
   }
-  .but-time{
-    position: relative;
-  }
-  ::ng-deep .color-menu .mat-menu-content{
-    width: 180px;
-    padding: 8px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-  }
-  .date-pick{
+}
+::ng-deep .mat-tooltip {
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+  font-family: "Roboto" sans-serif;
+  font-size: 12px;
+}
+::ng-deep .remainder-menu-2 .mat-menu-content {
+  div {
     display: flex;
     align-items: center;
-    border: none;
-    background: none;
-    &:hover{
-      background: none;
+    padding: 9px;
+    mat-icon {
+      &:focus-visible {
+        background: none;
+      }
     }
-    ::ng-deep .mat-form-field-flex{
-      background: none !important;
+    p {
+      margin-bottom: 0px;
+      margin-left: 3px;
     }
   }
-  // ::ng-deep .mat-focused .mat-form-field-label {
-  //   /change color of label/
-  //   color: rgb(133, 129, 129) !important;
-  //  }
-   
-  //  ::ng-deep.mat-form-field-ripple {
-  //   /change color of underline when focused/
-  //   background-color: rgb(133, 129, 129) !important;;
-  //  }
-   
-  //  ::ng-deep .mat-form-field-label {
-  //   /change color of label/
-  //   color: rgb(133, 129, 129) !important;
-  //  }
-   
-  .d-picker{
-    display: flex !important;
-    justify-content: space-between !important;
+}
+::ng-deep #mat-menu-panel-2 {
+  position: relative !important;
+  overflow-x: hidden;
+}
+
+@media only screen and (max-width: 576px) {
+  ::ng-deep .mat-dialog-container {
+    width: 80vw !important;
   }
+}

@@ -135,8 +135,11 @@ button:hover {
   }
 }
 @media screen and (max-width: 418px) {
+  .form {
+    width: auto;
+  }
   form {
-    width: 340px;
+    width: auto;
     .third {
       .icons {
         width: 250px;
