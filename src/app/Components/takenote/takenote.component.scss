@@ -6,11 +6,11 @@ input {
   background-color: transparent;
 }
 .smallCard {
-    display: flex;
-    justify-content: space-between;
-    border-radius: 8px;
-    align-items: center;
-    height: 30px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  align-items: center;
+  height: 30px;
 }
 textarea {
   font-family: "Open Sans", sans-serif;
@@ -83,6 +83,33 @@ button:hover {
       border-style: none;
     }
   }
+}
+.a-color {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    border: 1px solid black;
+  }
+  &:nth-child(1) {
+    border: 1px solid black;
+  }
+  i {
+    color: gray;
+  }
+}
+::ng-deep .color-menu .mat-menu-content {
+  width: 180px;
+  padding: 8px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }
 @media screen and (max-width: 700px) {
   form {

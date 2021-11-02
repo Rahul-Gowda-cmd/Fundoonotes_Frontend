@@ -1,12 +1,7 @@
 <div class="Getnote">
-<div class="overall-div" 
-
-    *ngFor="let note of archiveNotes"  
-     [ngStyle]="{'background-color':note['color']}" >
-
-<div>
-<app-note [note]="note"></app-note>
+  <div class="overall-div" *ngFor="let note of archiveNotes">
+    <div>
+      <app-note [note]="note"></app-note>
+    </div>
   </div>
 </div>
-</div>
-

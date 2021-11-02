@@ -113,21 +113,9 @@ export class UpdatenoteComponent implements OnInit {
       Desc: new FormControl(''),
     });
     this.setValues();
-    this.getDate();
+   
   }
-  // openDialog() {
-  //   let dialogref = this.dialog.open(DialogComponent, {
-  //     data: {
-  //       name: this.name,
-  //       email: this.email,
-  //       collab: this.collaboratorArr,
-  //     },
-  //   });
-  //   dialogref.afterClosed().subscribe((result) => {
-  //     console.log(result);
-  //     this.collaboratorArr = result;
-  //   });
-  // }
+
   autogrow() {
     var textArea = document.getElementById('notes')!;
     textArea.style.overflow = 'hidden';
@@ -137,53 +125,7 @@ export class UpdatenoteComponent implements OnInit {
   checkMenu(event: any) {
     return event.target.value;
   }
-  getDate() {
-    let date = new Date().getDay();
-    this.remainder = this.dayArr[date] + ', 8:00AM';
-  }
-  setRemainder() {
-    let date = new Date();
-    date.setDate(date.getDate() + 7);
-    this.addRemainder =
-      this.monthArr[date.getMonth()] + ' ' + date.getDate() + ', 8:00AM';
-    this.startDate = date;
-    console.log(this.addRemainder);
-  }
-  set() {
-    this.startDate = new Date();
-  }
-  setTom() {
-    this.startDate = new Date();
-    this.startDate.setDate(this.startDate.getDate() + 1);
-  }
-  getDateTime(data: any, time: any) {
-    console.log(data);
-    console.log(time);
-    var date = new Date();
-    var today =
-      this.monthArr[date.getMonth()] +
-      ' ' +
-      date.getDate() +
-      ',' +
-      date.getFullYear();
-    console.log(today);
-    if (data == today) {
-      data = 'Today';
-    }
-    date.setDate(date.getDate() + 1);
-    var tom =
-      this.monthArr[date.getMonth()] +
-      ' ' +
-      date.getDate() +
-      ',' +
-      date.getFullYear();
-    if (data == tom) {
-      console.log(tom);
-      data = 'Tommorow';
-    }
-    //console.log(today);
-    this.addRemainder = data + ', ' + time;
-  }
+
   setValues() {
     console.log(this.data);
     this.TitleNote = this.data.title;

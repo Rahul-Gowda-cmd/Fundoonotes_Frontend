@@ -262,4 +262,28 @@ export class UserServiceService {
     );
   }
   
+   updateColor(color: any, notesId: number){
+    this.token = localStorage.getItem('FunDooNotesJWT');
+    console.log(this.token, this.token.replace(/['"]+/g, ''));
+    console.log(notesId);
+    var headerObject = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + this.token.replace(/['"]+/g, '')
+    );
+
+    let options = {
+      headers: headerObject,
+      'Content-Type': 'application/json',
+    };
+
+    return this.httpService.post(
+      `${
+        environment.baseUrl
+      }/api/AddColor?noteId=${notesId}&color=%23${color.replace(/[#]+/g, '')}`,
+      null,
+      true,
+      options
+    );
+  }
+
 }

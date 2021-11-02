@@ -23,7 +23,7 @@
       <app-colors
         *ngIf="opened"
         (messageEvent)="receiveMessage($event)"
-        [notesId]="note.notesId"
+        [notesId]="note.noteId"    
       ></app-colors>
       <button mat-icon-button (click)="toggleColorPallete()">
         <mat-icon class="material-icons-outlined">color_lens</mat-icon>
@@ -50,12 +50,6 @@
         >unarchive</mat-icon
       >
       </button>
-      <!-- <button mat-icon-button *ngIf="!note.isArchived" (click)="archive(note.noteId)">
-        <mat-icon class="material-icons-outlined">archive_outline</mat-icon>      
-      </button> -->
-     <!-- <button mat-icon-button *ngIf="note.isArchived" (click)="UnArchive(note.noteId)">
-        <mat-icon class="material-icons-outlined">Unarchive_outline</mat-icon>     
-      </button> -->
 
       <button mat-icon-button>
         <mat-icon class="material-icons-outlined"  [matMenuTriggerFor]="menu">more_vert</mat-icon>

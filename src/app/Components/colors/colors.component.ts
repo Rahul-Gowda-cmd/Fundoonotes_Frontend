@@ -1,6 +1,9 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UserServiceService } from 'src/app/Services/UserService/user-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataServiceService } from 'src/app/Services/DataService/data-service.service';
 
 @Component({
   selector: 'app-colors',
@@ -8,7 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./colors.component.scss'],
 })
 export class ColorsComponent implements OnInit {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private noteservice:UserServiceService,
+    private http: HttpClient,private snack : MatSnackBar,
+    private data:DataServiceService, private router: Router) {}
 
   
   ngOnInit(): void {}
@@ -32,43 +37,30 @@ export class ColorsComponent implements OnInit {
   sendColor(color: any) {
     this.messageEvent.emit(color);
     console.log(this.notesId);
-    this.updateColor(color, this.notesId);
+     this.noteservice
+        .updateColor(
+          color,
+          this.notesId,
+        )
+        .subscribe((result: any) => {
+         this.data.changeMessage(true);
+          this.snack.open(result.message, '', { duration: 3000 });
+
+        });
   }
 
-  response: any;
-  token: any;
-  updateColor(color: any, notesId: number) {
-    this.token = localStorage.getItem('FunDooNotesJWT');
-    const headers = new HttpHeaders().append(
-      'Authorization',
-      `Bearer ${this.token}`
-    );
-    this.http
-      .put(
-        `https://localhost:44329/Notes/AddColor/${notesId}`,
-        { Color: `${color}` },
-        { headers: headers }
-      )
-      .subscribe(
-        (res) => {
-          this.response = res;
-          if (this.response.success == true) {
-            console.log('Color Updated');
-            this.reloadCurrentRoute();
-          }
-        },
-        (error) => {
-          console.log(error);
-          if (error.status == 401) {
-            console.log('fail');
-          }
-        }
-      );
-  }
-  reloadCurrentRoute() {
-    let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
-  }
+  // response: any;
+  // token: any;
+  // updateColor(color: any, notesId: number) {
+  //     this.noteservice
+  //       .updateColor(
+  //         this.data.noteId,
+  //         this.setColor,
+  //       )
+  //       .subscribe((result: any) => {
+  //        this.dataService.changeMessage(true);
+  //         this.snack.open(result.message, '', { duration: 3000 });
+
+  //       });
 }
+
