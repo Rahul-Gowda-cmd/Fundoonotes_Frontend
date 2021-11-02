@@ -36,6 +36,12 @@ export class NotesComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getAllNotes();
+    this.dataService.currentMessage.subscribe((change) => {
+      if (change == true) {
+        this.getAllNotes();
+        this.dataService.changeMessage(false);
+      }
+    });
   }
 
   getAllNotes() 
@@ -44,7 +50,7 @@ export class NotesComponent implements OnInit {
       (result: any) => {
         console.log(result);
         this.notes=result.data;
-        this.dataService.changeMessage(true);
+        
       },
       (error: HttpErrorResponse) => {
         if (error.error.message == '') {

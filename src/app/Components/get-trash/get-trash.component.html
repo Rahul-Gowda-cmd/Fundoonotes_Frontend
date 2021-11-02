@@ -1,0 +1,24 @@
+<div class="overall-div">
+ 
+    <mat-card
+    class="card-disp"
+    *ngFor="let trash of trashNotes"  
+     [ngStyle]="{'background-color':trash['color']}" >
+     
+    <div class="d-tit" style="font-weight: bold;">
+      {{trash['title']}}
+    </div>
+    <div class="d-con" style="margin-bottom: 15px;">
+        {{trash['notes']}}
+    </div>
+    <div class="over-con">
+       <div>
+
+       </div>
+      <div style="padding: 5px;">
+        <i class="material-icons" matTooltip="Delete" (click)="deleteFromTrash(trash)" style="cursor: pointer; margin-right: 10px;">delete_forever</i>
+        <i class="material-icons" matTooltip="Restore from trash" (click)="restore(trash)" style="cursor: pointer;">restore_from_trash</i>
+        </div>
+    </div>
+    </mat-card>
+</div>

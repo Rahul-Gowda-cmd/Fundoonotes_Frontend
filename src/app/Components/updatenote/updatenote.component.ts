@@ -210,6 +210,7 @@ export class UpdatenoteComponent implements OnInit {
         .subscribe((result: any) => {
          this.dataService.changeMessage(true);
           this.snack.open(result.message, '', { duration: 3000 });
+
         });
   }
 }

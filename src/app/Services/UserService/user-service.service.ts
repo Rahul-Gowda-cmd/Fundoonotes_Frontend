@@ -85,7 +85,7 @@ export class UserServiceService {
     );
   }
 
-  deleteNote(noteId: any ) {
+  TrashNote(noteId: any ) {
     this.token = localStorage.getItem('FunDooNotesJWT');
      var headerObject = new HttpHeaders().set(
       'Authorization',
@@ -97,8 +97,29 @@ export class UserServiceService {
       'Content-Type': 'application/json',
     };
     console.log(Options);
-    return this.httpService.delete(
-      `${environment.baseUrl}/api/Deletenote?notesId=${noteId}`,
+    return this.httpService.put(
+      `${environment.baseUrl}/api/TrashNote?notesId=${noteId}`,
+      null,
+      true,
+      Options
+    );
+  }
+
+  archive(noteId: any ) {
+    this.token = localStorage.getItem('FunDooNotesJWT');
+     var headerObject = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + this.token.replace(/['"]+/g, '')
+    );
+     let Options = {
+      headers: headerObject,
+      'accept': '*/*',
+      'Content-Type': 'application/json',
+    };
+    console.log(Options);
+    return this.httpService.put(
+      `${environment.baseUrl}/api/ArchiveNote?notesId=${noteId}`,
+      null,
       true,
       Options
     );
@@ -142,5 +163,82 @@ export class UserServiceService {
       options
     );
   }
+  
+  getTrash() {
+    this.token = localStorage.getItem('FunDooNotesJWT');
+     var headerObject = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + this.token.replace(/['"]+/g, '')
+    );
+     let Options = {
+      headers: headerObject,
+      'accept': '*/*',
+      'Content-Type': 'application/json',
+    };
+    console.log(Options);
+    return this.httpService.get(
+      `${environment.baseUrl}/api/GetTrash?userId=${parseInt(JSON.parse(this.user!).userId)}`,
+      true,
+      Options
+    );
+  }
 
+   restore(data:any)
+   {
+     console.log(data);
+    this.token = localStorage.getItem('FunDooNotesJWT');
+     var headerObject = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + this.token.replace(/['"]+/g, '')
+    );
+     let Options = {
+      headers: headerObject,
+      'accept': '*/*',
+      'Content-Type': 'application/json',
+    };
+    console.log(Options);
+    return this.httpService.post
+    (`${environment.baseUrl}/api/RestoreNote?notesId=${data}`,
+    null,true,Options
+    );
+  }
+  
+
+  deleteFromTrash(noteId:any){
+    this.token = localStorage.getItem('FunDooNotesJWT');
+     var headerObject = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + this.token.replace(/['"]+/g, '')
+    );
+     let Options = {
+      headers: headerObject,
+      'accept': '*/*',
+      'Content-Type': 'application/json',
+    };
+    console.log(Options);
+    return this.httpService.delete(
+      `${environment.baseUrl}/api/DeleteNotes?NotesId=${noteId}`,
+      true,
+      Options
+    );
+  }
+
+  getArchive() {
+    this.token = localStorage.getItem('FunDooNotesJWT');
+     var headerObject = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + this.token.replace(/['"]+/g, '')
+    );
+     let Options = {
+      headers: headerObject,
+      'accept': '*/*',
+      'Content-Type': 'application/json',
+    };
+    console.log(Options);
+    return this.httpService.get(
+      `${environment.baseUrl}/api/GetArchive?userId=${parseInt(JSON.parse(this.user!).userId)}`,
+      true,
+      Options
+    );
+  }
 }

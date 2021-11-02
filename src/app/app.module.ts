@@ -30,6 +30,8 @@ import { NoteComponent } from './Components/note/note.component';
 import { NotesComponent } from './Components/notes/notes.component';
 import { UpdatenoteComponent } from './Components/updatenote/updatenote.component';
 import { ColorsComponent } from './Components/colors/colors.component';
+import { GetTrashComponent } from './Components/get-trash/get-trash.component';
+import { GetArchiveComponent } from './Components/get-archive/get-archive.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ColorsComponent } from './Components/colors/colors.component';
     NotesComponent,
     UpdatenoteComponent,
     ColorsComponent,
+    GetTrashComponent,
+    GetArchiveComponent,
   ],
   imports: [
     BrowserModule,

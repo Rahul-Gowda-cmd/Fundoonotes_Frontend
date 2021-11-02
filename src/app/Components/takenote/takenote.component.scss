@@ -5,6 +5,13 @@ input {
   height: 45px;
   background-color: transparent;
 }
+.smallCard {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    align-items: center;
+    height: 30px;
+}
 textarea {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -29,7 +36,7 @@ button:hover {
 .mat-icon {
   font-size: 20px;
 }
-form {
+.form {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
   width: 650px;

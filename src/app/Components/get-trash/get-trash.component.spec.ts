@@ -1,21 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ColorsComponent } from './colors.component';
+import { GetTrashComponent } from './get-trash.component';
 
-describe('ColorsComponent', () => {
-  let component: ColorsComponent;
-  let fixture: ComponentFixture<ColorsComponent>;
+describe('GetTrashComponent', () => {
+  let component: GetTrashComponent;
+  let fixture: ComponentFixture<GetTrashComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ColorsComponent ]
+      declarations: [ GetTrashComponent ]
     })
     .compileComponents();
   });
 
-  
   beforeEach(() => {
-    fixture = TestBed.createComponent(ColorsComponent);
+    fixture = TestBed.createComponent(GetTrashComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UpdatenoteComponent } from '../updatenote/updatenote.component';
 import { UserServiceService } from 'src/app/Services/UserService/user-service.service';
+import { DataServiceService } from 'src/app/Services/DataService/data-service.service';
 
 @Component({
   selector: 'app-note',
@@ -21,7 +22,8 @@ export class NoteComponent implements OnInit {
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private userService: UserServiceService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private data:DataServiceService
   ) {
     this.noteForm = this.formBuilder.group({
       title: new FormControl(''),
@@ -39,21 +41,30 @@ export class NoteComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  archive() {
-    //console.log(this.note.notesId)
-    //this.deleteNote();
-    //this.archiveClicked.emit(!this.archiveClickedFlag);
-    //this.deleteNote();
+  archive(noteId: any) {
+    this.userService.archive(noteId).subscribe(
+      (result: any) => {
+        this.response=result;
+        console.log(result);
+        this.data.changeMessage(true);
+      },
+      (error: HttpErrorResponse) => {
+        if (error.error.message == '') {
+          console.log(error.error.message);
+        }
+      }
+    );
   }
 
   token: any;
   response: any;
   
-  deleteNote(noteId: any) {
-    this.userService.deleteNote(noteId).subscribe(
+  TrashNote(noteId: any) {
+    this.userService.TrashNote(noteId).subscribe(
       (result: any) => {
         this.response=result;
         console.log(result);
+        this.data.changeMessage(true);
       },
       (error: HttpErrorResponse) => {
         if (error.error.message == '') {

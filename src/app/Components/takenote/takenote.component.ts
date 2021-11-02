@@ -19,6 +19,8 @@ export class TakenoteComponent implements OnInit {
   @Output() messageEvent = new EventEmitter<any>();
   noteForm: FormGroup;
   user = JSON.parse(localStorage.getItem('FundooUser')!);
+  smallNote: boolean = true;
+  bigNote: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -39,6 +41,8 @@ export class TakenoteComponent implements OnInit {
   close() {
     console.log(this.noteForm?.value);
     this.messageEvent.emit(this.noteForm?.value);
+    this.smallNote=true;
+    this.bigNote=false;
 
     if (this.noteForm.value.title != '' || this.noteForm.value.body != '') {
       let reqData = {
@@ -51,6 +55,7 @@ export class TakenoteComponent implements OnInit {
       this.userService.addNotes(reqData).subscribe(
         (response: any) => {
           console.log(response)
+          
           this.reloadCurrentRoute();
           
         },
@@ -64,6 +69,11 @@ export class TakenoteComponent implements OnInit {
     }
   }
   
+  showNote() {
+    this.smallNote = false;
+    this.bigNote = true;
+  }
+
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {

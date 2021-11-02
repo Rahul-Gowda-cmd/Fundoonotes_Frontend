@@ -84,6 +84,7 @@
           >person</i
         >
       </button>
+
       <mat-menu #menu="matMenu" class="acc-menu">
         <i class="material-icons person menuIcon">person</i>
         <div class="user">
@@ -166,6 +167,12 @@
       ></div>
       <div>
         <app-notes  *ngIf="isOption == 1"></app-notes>
+      </div>
+      <div>
+        <app-get-archive *ngIf = "isOption == 4"></app-get-archive>
+      </div>
+      <div>
+        <app-get-trash *ngIf = "isOption == 5"></app-get-trash>
       </div>
     </div>
   </div>

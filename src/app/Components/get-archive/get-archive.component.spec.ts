@@ -1,21 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ColorsComponent } from './colors.component';
+import { GetArchiveComponent } from './get-archive.component';
 
-describe('ColorsComponent', () => {
-  let component: ColorsComponent;
-  let fixture: ComponentFixture<ColorsComponent>;
+describe('GetArchiveComponent', () => {
+  let component: GetArchiveComponent;
+  let fixture: ComponentFixture<GetArchiveComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ColorsComponent ]
+      declarations: [ GetArchiveComponent ]
     })
     .compileComponents();
   });
 
-  
   beforeEach(() => {
-    fixture = TestBed.createComponent(ColorsComponent);
+    fixture = TestBed.createComponent(GetArchiveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

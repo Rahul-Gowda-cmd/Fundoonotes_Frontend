@@ -32,7 +32,7 @@
         <mat-icon class="material-icons-outlined">insert_photo</mat-icon>
       </button>
 
-      <button mat-icon-button (click)="archive()">
+      <button mat-icon-button (click)="archive(note.noteId)">
         <mat-icon class="material-icons-outlined">archive_outline</mat-icon>
       </button>
       <button mat-icon-button>
@@ -41,7 +41,7 @@
       <mat-menu #menu="matMenu" class="i-option">
           <button
             mat-menu-item
-            (click)='deleteNote(note.noteId)'
+            (click)='TrashNote(note.noteId)'
           >
             Delete Note
           </button>

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ColorsComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
+  
   ngOnInit(): void {}
   colors = [
     'white',

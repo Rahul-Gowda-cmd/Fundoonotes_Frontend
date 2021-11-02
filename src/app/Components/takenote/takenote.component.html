@@ -1,4 +1,14 @@
-<form [formGroup]="noteForm">
+
+<mat-card class="smallCard form"  *ngIf="smallNote" (click)="showNote()">
+  <mat-card-title class="small-card-title">
+    <input type="text" placeholder="Take a Note..." />
+  </mat-card-title>
+  <mat-card-subtitle class="icons">
+   <mat-icon class="material-icons-outlined t-icons">check</mat-icon>
+  <mat-icon class="material-icons-outlined t-icons">image</mat-icon>
+  </mat-card-subtitle>
+</mat-card>
+<form  class="bigCard form" *ngIf="bigNote" [formGroup]="noteForm">
   <div class="first">
     <input type="text" placeholder="Title" formControlName="title" />
     <button mat-icon-button>
@@ -26,7 +36,6 @@
     <p>Fav</p>
     <div></div>
   </div>
-
   <div class="third">
     <div class="icons">
       <button mat-icon-button>
