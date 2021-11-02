@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { UpdatenoteComponent } from '../updatenote/updatenote.component';
 import { UserServiceService } from 'src/app/Services/UserService/user-service.service';
 import { DataServiceService } from 'src/app/Services/DataService/data-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-note',
@@ -14,8 +15,8 @@ import { DataServiceService } from 'src/app/Services/DataService/data-service.se
 })
 export class NoteComponent implements OnInit {
   archiveClickedFlag: boolean = false;
-  @Input() note: any;
-  @Output() archiveClicked = new EventEmitter<Boolean>();
+  @Input() note!: any;
+ 
   noteForm: FormGroup;
 
   constructor(
@@ -23,7 +24,8 @@ export class NoteComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserServiceService,
     public dialog: MatDialog,
-    private data:DataServiceService
+    private data:DataServiceService,
+    private snack:MatSnackBar
   ) {
     this.noteForm = this.formBuilder.group({
       title: new FormControl(''),
@@ -39,9 +41,13 @@ export class NoteComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //this.archive(note.noteId)
+  }
+  
 
   archive(noteId: any) {
+    
     this.userService.archive(noteId).subscribe(
       (result: any) => {
         this.response=result;
@@ -54,6 +60,15 @@ export class NoteComponent implements OnInit {
         }
       }
     );
+  }
+  
+   UnArchive(noteId:any){
+    console.log(noteId);
+    this.userService.UnArchive(noteId).
+    subscribe((result:any)=>{
+      this.data.changeMessage(true);
+        this.snack.open(result.message,'',{duration:3000});
+    })
   }
 
   token: any;
@@ -79,8 +94,6 @@ export class NoteComponent implements OnInit {
     const dialogRef = this.dialog.open(UpdatenoteComponent, {
       panelClass: 'custom-dialog-container',
       width: '650px',
-      // height:'400px',
-      // data: {name: this.name, animal: this.animal}
       data: this.note
     });
 

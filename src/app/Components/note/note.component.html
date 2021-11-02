@@ -31,13 +31,36 @@
       <button mat-icon-button>
         <mat-icon class="material-icons-outlined">insert_photo</mat-icon>
       </button>
-
-      <button mat-icon-button (click)="archive(note.noteId)">
-        <mat-icon class="material-icons-outlined">archive_outline</mat-icon>
+      
+      <button>
+      <mat-icon
+        mat-list-icon
+        class="material-icons-outlined"
+        *ngIf="!note.isArchived"
+        matTooltip="Archive"
+        (click)="archive(note.noteId)"
+        >archive</mat-icon
+      >
+      <mat-icon
+        class="material-icons-outlined"
+        matTooltip="Unarchive"
+        mat-list-icon
+        *ngIf="note.isArchived"
+        (click)="UnArchive(note.noteId)"
+        >unarchive</mat-icon
+      >
       </button>
+      <!-- <button mat-icon-button *ngIf="!note.isArchived" (click)="archive(note.noteId)">
+        <mat-icon class="material-icons-outlined">archive_outline</mat-icon>      
+      </button> -->
+     <!-- <button mat-icon-button *ngIf="note.isArchived" (click)="UnArchive(note.noteId)">
+        <mat-icon class="material-icons-outlined">Unarchive_outline</mat-icon>     
+      </button> -->
+
       <button mat-icon-button>
         <mat-icon class="material-icons-outlined"  [matMenuTriggerFor]="menu">more_vert</mat-icon>
       </button>
+
       <mat-menu #menu="matMenu" class="i-option">
           <button
             mat-menu-item

@@ -241,4 +241,25 @@ export class UserServiceService {
       Options
     );
   }
+
+   UnArchive(noteId:any)
+   {
+     console.log(noteId);
+    this.token = localStorage.getItem('FunDooNotesJWT');
+     var headerObject = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + this.token.replace(/['"]+/g, '')
+    );
+     let Options = {
+      headers: headerObject,
+      'accept': '*/*',
+      'Content-Type': 'application/json',
+    };
+    console.log(Options);
+    return this.httpService.post
+    (`${environment.baseUrl}/api/UnArchiveNote?notesId=${noteId}`,
+    null,true,Options
+    );
+  }
+  
 }

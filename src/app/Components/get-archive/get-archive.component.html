@@ -1,14 +1,12 @@
+<div class="Getnote">
 <div class="overall-div" 
 
-    *ngFor="let note of archiveNotes?.reverse()"  
+    *ngFor="let note of archiveNotes"  
      [ngStyle]="{'background-color':note['color']}" >
-     
-    <!-- <div class="d-tit" style="font-weight: bold;">
-      {{note['title']}}
-    </div>
-    <div class="d-con" style="margin-bottom: 15px;">
-        {{note['body']}}
-    </div> -->
+
+<div>
 <app-note [note]="note"></app-note>
-  
+  </div>
 </div>
+</div>
+

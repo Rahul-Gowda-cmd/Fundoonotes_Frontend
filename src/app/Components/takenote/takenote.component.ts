@@ -73,7 +73,18 @@ export class TakenoteComponent implements OnInit {
     this.smallNote = false;
     this.bigNote = true;
   }
-
+  
+  opened = false;
+  toggleColorPallete() {
+    this.opened = !this.opened;
+  }
+  
+  color: any;
+  receiveMessage($event: any) {
+    this.color = $event;
+    console.log(this.color);
+  }
+  
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
